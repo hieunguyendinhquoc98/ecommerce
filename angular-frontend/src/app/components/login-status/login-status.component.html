@@ -1,0 +1,13 @@
+<div class="login-status-header">
+
+    <div *ngIf="isAuthenticated && userFullName" class="login-status-user-info">
+        Hi {{ userFullName}}!
+    </div>
+
+    <!-- to avoid CORS, we must setting API trust origin in Okta server -->
+    <div *ngIf="!isAuthenticated" routerLink="/login" class="btn btn-warning">Login</div>
+    <div *ngIf="isAuthenticated" (click)="logout()" class="btn btn-danger">Logout</div>
+    <!-- <button routerLink="/members" class="btn btn-primary">Member</button> -->
+    <button routerLink="/order-history" class="btn btn-primary">Orders</button>
+
+</div>
